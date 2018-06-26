@@ -8,7 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.user.intranet2.R
-import intranet.activities.MainActivity.Companion.registerAllStudentListener
+import com.example.user.intranet2.R.id.studentRecyclerView
+import intranet.activities.StudentFragmentListener
 import intranet.adapters.RecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_students.*
 
@@ -18,6 +19,7 @@ private const val ARG_PARAM2 = "param2"
 class StudentsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var studentFragmentListener: StudentFragmentListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +36,7 @@ class StudentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        registerAllStudentListener()
+        studentFragmentListener.fetchData()
         studentRecyclerView.layoutManager= LinearLayoutManager(activity)
         studentRecyclerView.adapter= RecyclerAdapter()
     }
@@ -47,6 +49,7 @@ class StudentsFragment : Fragment() {
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        studentFragmentListener = context as StudentFragmentListener
     }
 
     override fun onDetach() {

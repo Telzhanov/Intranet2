@@ -9,10 +9,16 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.user.intranet2.R
+import com.example.user.intranet2.R.id.*
 import intranet.adapters.MyPagerAdapter
+import intranet.presenters.UserPresenter
 import kotlinx.android.synthetic.main.activity_user.*
 
-class UserActivity : AppCompatActivity(),RefreshAcitivity {
+class UserActivity : AppCompatActivity(), StudentFragmentListener{
+    var userPresenter: UserPresenter
+    init {
+        userPresenter= UserPresenter(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
@@ -28,8 +34,6 @@ class UserActivity : AppCompatActivity(),RefreshAcitivity {
             val intent = Intent(this, AddStudentActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -48,12 +52,10 @@ class UserActivity : AppCompatActivity(),RefreshAcitivity {
         }
     }
 
-    override fun refreshData() {
-        val pagerAdapter = MyPagerAdapter(supportFragmentManager)
-        viewPager.adapter=pagerAdapter
+    override fun fetchData() {
+        userPresenter.registerAllStudentListener()
     }
-
 }
-interface RefreshAcitivity{
-    fun refreshData()
+interface StudentFragmentListener{
+    fun fetchData()
 }

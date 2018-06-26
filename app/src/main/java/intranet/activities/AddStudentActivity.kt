@@ -7,11 +7,15 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.user.intranet2.R
-import intranet.activities.MainActivity.Companion.addStudent
+import intranet.presenters.AddStudentPresenter
 import kotlinx.android.synthetic.main.activity_add_student.*
 
 class AddStudentActivity : AppCompatActivity() {
 //    lateinit var refreshAcitivity:RefreshAcitivity
+    var addStudentPresenter:AddStudentPresenter
+    init{
+        addStudentPresenter=AddStudentPresenter(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_student)
@@ -35,7 +39,7 @@ class AddStudentActivity : AppCompatActivity() {
                 true
             }
             R.id.idDone->{
-                addStudent(registerId.text.toString().toInt(),registerName.text.toString(),registerGpa.text.toString().toDouble())
+                addStudentPresenter.addStudent(registerId.text.toString().toInt(),registerName.text.toString(),registerGpa.text.toString().toDouble())
 //                refreshAcitivity.refreshData()
                 finish()
                 true

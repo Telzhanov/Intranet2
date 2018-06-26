@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.user.intranet2.R
-import intranet.activities.MainActivity.Companion.students
+import intranet.presenters.Data
+import intranet.presenters.Data.students
 import kotlinx.android.synthetic.main.card.view.*
 
 class RecyclerAdapter: RecyclerView.Adapter<ViewHolder>(){
     override fun getItemCount(): Int {
-        return students.size
+        return Data.students.size
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
