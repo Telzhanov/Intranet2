@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.user.intranet2.R
-import com.example.user.intranet2.R.id.studentRecyclerView
 import intranet.activities.StudentFragmentListener
 import intranet.adapters.RecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_students.*
@@ -20,6 +19,7 @@ class StudentsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     lateinit var studentFragmentListener: StudentFragmentListener
+    var dataset=ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,6 +37,10 @@ class StudentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         studentFragmentListener.fetchData()
+        dataset.add(HEADER)
+        dataset.add(STUDENTS)
+        dataset.add(TEACHERS)
+        dataset.add(FOOTER)
         studentRecyclerView.layoutManager= LinearLayoutManager(activity)
         studentRecyclerView.adapter= RecyclerAdapter()
     }
@@ -68,3 +72,8 @@ class StudentsFragment : Fragment() {
                 }
     }
 }
+const val HEADER = "HEADER"
+const val STUDENTS = "STUDENTS"
+const val TEACHERS = "TEACHERS"
+const val FOOTER = "FOOTER"
+
