@@ -3,23 +3,22 @@ package intranet.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.user.intranet2.R
+import intranet.activities.StudentFragmentActivity
 import intranet.activities.StudentFragmentListener
-import intranet.adapters.RecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_students.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class StudentsFragment : Fragment() {
+class StudentsFragment : Fragment(),StudentFragmentListener {
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var studentFragmentListener: StudentFragmentListener
-    var dataset=ArrayList<String>()
+    lateinit var studentFragmentActivity: StudentFragmentActivity
+    var dataset=ArrayList<Any>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,24 +35,20 @@ class StudentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        studentFragmentListener.fetchData()
-        dataset.add(HEADER)
-        dataset.add(STUDENTS)
-        dataset.add(TEACHERS)
-        dataset.add(FOOTER)
-        studentRecyclerView.layoutManager= LinearLayoutManager(activity)
-        studentRecyclerView.adapter= RecyclerAdapter()
+
+
     }
+
+    override fun getRecyclerView()=studentRecyclerView
 
     override fun onResume() {
         super.onResume()
-        studentRecyclerView.layoutManager= LinearLayoutManager(activity)
-        studentRecyclerView.adapter= RecyclerAdapter()
+        studentFragmentActivity.showUsers(studentRecyclerView)
 
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        studentFragmentListener = context as StudentFragmentListener
+        studentFragmentActivity = context as StudentFragmentActivity
     }
 
     override fun onDetach() {

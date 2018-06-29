@@ -5,16 +5,16 @@ import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.user.intranet2.R
-import com.example.user.intranet2.R.id.*
 import intranet.adapters.MyPagerAdapter
 import intranet.presenters.UserPresenter
 import kotlinx.android.synthetic.main.activity_user.*
 
-class UserActivity : AppCompatActivity(), StudentFragmentListener{
+class UserActivity : AppCompatActivity(),StudentFragmentActivity{
     var userPresenter: UserPresenter
     init {
         userPresenter= UserPresenter(this)
@@ -52,10 +52,14 @@ class UserActivity : AppCompatActivity(), StudentFragmentListener{
         }
     }
 
-    override fun fetchData() {
-        userPresenter.registerAllStudentListener()
+    override fun showUsers(recyclerView: RecyclerView) {
+        userPresenter.showUsers(recyclerView)
     }
+
 }
 interface StudentFragmentListener{
-    fun fetchData()
+    fun getRecyclerView():RecyclerView
+}
+interface StudentFragmentActivity{
+    fun showUsers(recyclerView: RecyclerView)
 }
