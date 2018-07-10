@@ -1,4 +1,7 @@
 package intranet.models
 
-open class Person(var name:String,var id:Int) {
+import java.io.Serializable
+
+open class Person(var name:String,var id:Int):Serializable {
+
 }

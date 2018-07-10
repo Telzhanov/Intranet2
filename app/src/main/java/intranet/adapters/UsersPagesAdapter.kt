@@ -3,22 +3,27 @@ package intranet.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import intranet.fragments.StudentsFragment
-import intranet.fragments.TeacherFragment
+import intranet.views.AllUsersFragment
+import intranet.views.StudentsFragment
+import intranet.views.TeacherFragment
 
-class MyPagerAdapter(fr : FragmentManager): FragmentPagerAdapter(fr) {
+class UsersPagesAdapter(fr : FragmentManager): FragmentPagerAdapter(fr) {
     override fun getCount(): Int {
-        return 2
+        return 3
     }
     override fun getItem(position: Int): Fragment? {
         when(position){
             0->{
-                val studentsFragment= StudentsFragment.newInstance("", "")
-                return studentsFragment
+                val allUsersFragment= AllUsersFragment()
+                return allUsersFragment
             }
             1->{
-                val teacherFragment= TeacherFragment.newInstance("", "")
+                val teacherFragment= TeacherFragment()
                 return teacherFragment
+            }
+            2->{
+                val studentFragment= StudentsFragment()
+                return studentFragment
             }
             else ->return null
         }
@@ -26,8 +31,9 @@ class MyPagerAdapter(fr : FragmentManager): FragmentPagerAdapter(fr) {
 
     override fun getPageTitle(position: Int): CharSequence? {
         when(position){
-            0->return "Students"
             1->return "Teachers"
+            0->return "All users"
+            2->return "Students"
             else->return null
         }
     }

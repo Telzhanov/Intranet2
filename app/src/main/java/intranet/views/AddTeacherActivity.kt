@@ -1,4 +1,4 @@
-package intranet.activities
+package intranet.views
 
 import android.os.Bundle
 import android.support.v7.app.ActionBar
@@ -7,23 +7,20 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.user.intranet2.R
-import intranet.presenters.AddStudentPresenter
-import kotlinx.android.synthetic.main.activity_add_student.*
+import intranet.presenters.AddTeacherPresenter
+import kotlinx.android.synthetic.main.activity_add_teacher.*
 
-class AddStudentActivity : AppCompatActivity() {
-//    lateinit var refreshAcitivity:RefreshAcitivity
-    var addStudentPresenter:AddStudentPresenter
-    init{
-        addStudentPresenter=AddStudentPresenter(this)
+class AddTeacherActivity : AppCompatActivity() {
+    val addTeacherPresenter:AddTeacherPresenter
+    init {
+        addTeacherPresenter= AddTeacherPresenter()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_student)
-//        val userActivity=UserActivity()
-//        refreshAcitivity = userActivity
-        setSupportActionBar(toolbarOfAddStudent)
+        setContentView(R.layout.activity_add_teacher)
+        setSupportActionBar(toolbarOfAddTeacher)
         var actionBar: ActionBar? = supportActionBar
-        actionBar?.title="Sign up"
+        actionBar?.title="Add teacher"
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setHomeAsUpIndicator(R.drawable.ic_navigate_before_black_24dp)
     }
@@ -39,7 +36,7 @@ class AddStudentActivity : AppCompatActivity() {
                 true
             }
             R.id.idDone->{
-                addStudentPresenter.addStudent(registerId.text.toString().toInt(),registerName.text.toString(),registerGpa.text.toString().toDouble())
+                addTeacherPresenter.addTeacher(registerTeacherId.text.toString().toInt(),registerTeacherName.text.toString(),registerFaculty.text.toString())
 //                refreshAcitivity.refreshData()
                 finish()
                 true

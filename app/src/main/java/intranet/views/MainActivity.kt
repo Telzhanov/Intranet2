@@ -1,4 +1,4 @@
-package intranet.activities
+package intranet.views
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,7 @@ class MainActivity: AppCompatActivity() {
         setContentView(R.layout.activity_main)
 //        addStudent(1,"Askhat",0.0)
         buttonSignUp.setOnClickListener {
-            val intent = Intent(this, intranet.activities.UserActivity::class.java)
+            val intent = Intent(this, intranet.views.UserActivity::class.java)
             startActivity(intent)
         }
     }

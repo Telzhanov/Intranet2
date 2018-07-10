@@ -4,34 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="intranet.views.AddStudentActivity">
+    tools:context="intranet.views.AddTeacherActivity">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarOfAddStudent"
+        android:id="@+id/toolbarOfAddTeacher"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         app:titleTextColor="#FFF"
+        app:title="Add Teacher"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
 
     <android.support.design.widget.TextInputLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/nameInputLayout"
-    app:layout_constraintTop_toBottomOf="@id/toolbarOfAddStudent"
-    android:layout_marginTop="80dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp">
-    <EditText
-        android:id="@+id/registerName"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:focusableInTouchMode="true"/>
-</android.support.design.widget.TextInputLayout>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameInputLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOfAddTeacher"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+        <EditText
+            android:id="@+id/registerTeacherName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:focusableInTouchMode="true"/>
+    </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -43,7 +44,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/registerId"
+            android:id="@+id/registerTeacherId"
             android:hint="id"
             android:inputType="number"
             android:focusableInTouchMode="true"/>
@@ -56,12 +57,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp">
+
         <EditText
+            android:id="@+id/registerFaculty"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/registerGpa"
-            android:hint="gpa"
-            android:inputType="numberDecimal"
-            android:focusableInTouchMode="true"/>
+            android:focusableInTouchMode="true"
+            android:hint="faculty"
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 </android.support.constraint.ConstraintLayout>

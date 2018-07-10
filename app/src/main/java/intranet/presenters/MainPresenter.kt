@@ -1,13 +1,14 @@
 package intranet.presenters
 
-import android.content.Context
-import intranet.models.MyDatabase
-import intranet.models.Student
+import intranet.MainContract
 
-class MainPresenter(context: Context):BasePresenter(context) {
+class MainPresenter():MainContract.Presenter {
+    override fun onStart(v: MainContract.View) {
 
-}
-object Data{
-    var students = ArrayList<Student>()
-    var database: MyDatabase? = null
+    }
+
+    override fun onFinish() {
+
+    }
+
 }

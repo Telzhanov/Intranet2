@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/gpaTextView"
             android:layout_marginTop="16dp"
-            android:text="ID:"
+            android:text="GPA:"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/idTextView"
