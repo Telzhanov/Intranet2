@@ -16,8 +16,8 @@ class AddStudentPresenter():MainContract.Presenter{
 
     }
 
-    fun addStudent(id: Int, name: String, gpa: Double) {
-        val student = StudentDb(id, name, gpa)
+    fun addStudent(id: Int, name: String, gpa: Double,password:String) {
+        val student = StudentDb(id, name, gpa,password)
         Single.fromCallable {
             App.database?.studentDao()?.insert(student)
         }.subscribeOn(Schedulers.io())

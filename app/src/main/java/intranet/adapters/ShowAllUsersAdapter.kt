@@ -39,13 +39,11 @@ class ShowAllUsersAdapter(var dataset: ArrayList<Any>, var context : Context):Re
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is HeaderViewHolder->{
-                    holder.itemView.toolbarRecycler.title=dataset[position].toString()
+                    holder.itemView.headerListUsers.text=dataset[position].toString()
                 }
             is StudentsViewHolder->{
                 var s = dataset[position] as Student
                 holder.itemView.nameUser.text = s.name
-                holder.itemView.idUser.text = s.id.toString()
-                holder.itemView.gpaUser.text = s.gpa.toString()
                 holder.itemView.setOnClickListener {
                     openProfileActivity.openProfile(s)
                 }
@@ -53,9 +51,6 @@ class ShowAllUsersAdapter(var dataset: ArrayList<Any>, var context : Context):Re
             is TeachersViewHolder->{
                 var t = dataset[position] as Teacher
                 holder.itemView.nameUser.text = t.name
-                holder.itemView.idUser.text=t.id.toString()
-                holder.itemView.gpaTextView.text = "Faculty"
-                holder.itemView.gpaUser.text = t.faculty
             }
         }
     }

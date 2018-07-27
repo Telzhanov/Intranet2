@@ -29,7 +29,7 @@ class StudentFragmentPresenter(v : MainContract.View):MainContract.Presenter{
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe { listOfStudents ->
                     for (student in listOfStudents) {
-                        var s = Student(student.name, student.id, student.gpa)
+                        var s = Student(student.name, student.id, "",student.gpa)
                         students.add(s)
                     }
                     studentListView.addStudent(students)

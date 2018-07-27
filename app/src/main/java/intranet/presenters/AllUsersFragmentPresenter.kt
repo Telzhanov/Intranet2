@@ -32,7 +32,7 @@ class AllUsersFragmentPresenter(v: MainContract.View):MainContract.Presenter{
                 ?.doFinally{userListView.stopLoading()}
                 ?.subscribe { listOfStudents ->
                     for (student in listOfStudents) {
-                        var s = Student(student.name, student.id, student.gpa)
+                        var s = Student(student.name, student.id,"", student.gpa)
                         students.add(s)
                     }
                     userListView.addStudent(students)
@@ -47,7 +47,7 @@ class AllUsersFragmentPresenter(v: MainContract.View):MainContract.Presenter{
                 ?.doFinally{userListView.stopLoading()}
                 ?.subscribe { listOfTeachers ->
                     for (teacher in listOfTeachers) {
-                        var t = Teacher(teacher.name, teacher.id, teacher.faculty)
+                        var t = Teacher(teacher.name, teacher.id, "",teacher.faculty)
                         teachers.add(t)
                     }
                     userListView.addTeacher(teachers)

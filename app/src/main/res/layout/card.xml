@@ -1,79 +1,37 @@
-<android.support.v7.widget.CardView android:layout_height="wrap_content"
+<android.support.v7.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:id="@+id/cardView"
-    android:layout_margin="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="56dp"
-            android:text="Name:"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="56dp">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/user_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/user"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nameUser"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text=""
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/nameTextView"
-            app:layout_constraintTop_toTopOf="@id/nameTextView" />
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/idTextView"
-            android:layout_marginTop="16dp"
-            android:text="ID:"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@id/nameTextView"
-            app:layout_constraintTop_toBottomOf="@id/nameTextView"/>
-
-        <TextView
-            android:id="@+id/idUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@id/nameUser"
-            app:layout_constraintTop_toTopOf="@id/idTextView" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/gpaTextView"
-            android:layout_marginTop="16dp"
-            android:text="GPA:"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@id/idTextView"
-            app:layout_constraintTop_toBottomOf="@id/idTextView"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/gpaUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@id/idUser"
-            app:layout_constraintTop_toTopOf="@id/gpaTextView" />
+            app:layout_constraintStart_toEndOf="@id/user_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/nameUser"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:text="User name"
+            tools:ignore="RtlCompat" />
     </android.support.constraint.ConstraintLayout>
+
+
 </android.support.v7.widget.CardView>

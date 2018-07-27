@@ -72,10 +72,7 @@ class AllUsersFragment : Fragment(), UserListView,AddStudentRefresh {
         allUserFragmentPresenter.loadTeachers()
 
     }
-
-
 }
-
 const val STUDENTS="STUDENTS"
 const val TEACHERS = "TEACHERS"
 

@@ -36,7 +36,7 @@ class AddTeacherActivity : AppCompatActivity() {
                 true
             }
             R.id.idDone->{
-                addTeacherPresenter.addTeacher(registerTeacherId.text.toString().toInt(),registerTeacherName.text.toString(),registerFaculty.text.toString())
+                addTeacherPresenter.addTeacher(registerTeacherId.text.toString().toInt(),registerTeacherName.text.toString(),registerFaculty.text.toString(),"")
 //                refreshAcitivity.refreshData()
                 finish()
                 true
