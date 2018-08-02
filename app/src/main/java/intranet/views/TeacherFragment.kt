@@ -45,7 +45,7 @@ class TeacherFragment : Fragment(),TeacherListView {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         teacherFragmentPresenter= TeacherFragmentPresenter(this)
-        teacherFragmentPresenter.loadTeachers()
+//        teacherFragmentPresenter.loadTeachers()
 
     }
 

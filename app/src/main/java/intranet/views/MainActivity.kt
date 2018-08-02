@@ -8,6 +8,11 @@ import intranet.presenters.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity:LoginView, AppCompatActivity() {
+    override fun openList() {
+        val intent = Intent(this, UserActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
     val mainPresenter: MainPresenter
     override fun startloading() {
 
@@ -24,12 +29,13 @@ class MainActivity:LoginView, AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mainPresenter.onStart(this)
-        buttonSignUp.setOnClickListener {
-            if (mainPresenter.checkUser(editId.text.toString().toInt(),editPassword.text.toString())){
-                val intent = Intent(this, intranet.views.UserActivity::class.java)
-                startActivity(intent)
-            }
-
+        buttonSignIn.setOnClickListener{
+            mainPresenter.checkUser(editId.text.toString(),editPassword.text.toString())
+        }
+        buttonSignUp.setOnClickListener{
+            var intent = Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
+
 }

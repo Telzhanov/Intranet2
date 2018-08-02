@@ -68,8 +68,8 @@ class AllUsersFragment : Fragment(), UserListView,AddStudentRefresh {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         allUserFragmentPresenter = AllUsersFragmentPresenter(this)
-        allUserFragmentPresenter.loadStudents()
-        allUserFragmentPresenter.loadTeachers()
+//        allUserFragmentPresenter.loadStudents()
+//        allUserFragmentPresenter.loadTeachers()
 
     }
 }

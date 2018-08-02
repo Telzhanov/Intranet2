@@ -19,9 +19,9 @@ import kotlinx.android.synthetic.main.activity_user.*
 
 class UserActivity : AppCompatActivity(), OpenProfileActivity {
     override fun openProfile(student : Student) {
-        var intent= Intent (this, ProfileActivity::class.java)
-        intent.putExtra("object",student)
-        startActivity(intent)
+//        var intent= Intent (this, ProfileActivity::class.java)
+//        intent.putExtra("object",student)
+//        startActivity(intent)
     }
 
     var userPresenter: UserPresenter
@@ -81,6 +81,11 @@ class UserActivity : AppCompatActivity(), OpenProfileActivity {
         return when (item?.itemId) {
             android.R.id.home -> {
                 mDrawerLayout.openDrawer(GravityCompat.START)
+                true
+            }
+            R.id.signOutButton->{
+                userPresenter.signOut()
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
