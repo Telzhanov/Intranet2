@@ -3,7 +3,6 @@ package intranet.models
 import android.arch.persistence.room.*
 import io.reactivex.Flowable
 
-
 @Database(entities = arrayOf(StudentDb::class,TeacherDb::class), version = 2)
 abstract class MyDatabase : RoomDatabase() {
     abstract fun studentDao():StudentDao

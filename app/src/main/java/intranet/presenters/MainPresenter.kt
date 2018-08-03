@@ -9,7 +9,7 @@ import intranet.views.LoginView
 
 
 class MainPresenter():MainContract.Presenter {
-//    var allUsers = ArrayList<Person>()
+    //    var allUsers = ArrayList<Person>()
     lateinit var loginView : LoginView
     private var mAuth: FirebaseAuth? = null
 

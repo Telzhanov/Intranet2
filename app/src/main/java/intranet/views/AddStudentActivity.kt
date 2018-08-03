@@ -39,7 +39,7 @@ class AddStudentActivity() : AppCompatActivity() {
                 true
             }
             R.id.idDone->{
-                addStudentPresenter.addStudent(registerId.text.toString().toInt(),registerName.text.toString(),registerGpa.text.toString().toDouble(),"")
+//                addStudentPresenter.addStudent(registerId.text.toString().toInt(),registerName.text.toString(),registerGpa.text.toString().toDouble(),"")
 //                refreshAcitivity.refreshData()
                 finish()
                 true

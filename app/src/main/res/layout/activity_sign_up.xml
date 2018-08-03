@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/nameInputLayout"
         app:layout_constraintTop_toBottomOf="@id/toolbarSignUp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="48dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp">
         <EditText
@@ -64,6 +64,28 @@
             android:focusableInTouchMode="true"/>
     </android.support.design.widget.TextInputLayout>
 
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radioGroup"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/gpaInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/gpaInputLayout">
+
+        <RadioButton
+            android:id="@+id/radioStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student" />
+
+        <RadioButton
+            android:id="@+id/radioTeacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teacher" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
@@ -71,6 +93,6 @@
         android:layout_marginTop="24dp"
         android:text="SignUp"
         app:layout_constraintEnd_toEndOf="@+id/gpaInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/gpaInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </android.support.constraint.ConstraintLayout>
