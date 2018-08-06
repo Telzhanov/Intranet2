@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity:LoginView, AppCompatActivity() {
     override fun openList() {
-        val intent = Intent(this, UserActivity::class.java)
+        val intent = Intent(this, TeacherMenuActivity::class.java)
         startActivity(intent)
         finish()
     }

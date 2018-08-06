@@ -3,6 +3,7 @@ package intranet.presenters
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 import intranet.MainContract
 import intranet.views.LoginView
 
@@ -12,10 +13,20 @@ class MainPresenter():MainContract.Presenter {
     //    var allUsers = ArrayList<Person>()
     lateinit var loginView : LoginView
     private var mAuth: FirebaseAuth? = null
-
+    var database = FirebaseDatabase.getInstance()
     override fun onStart(v: MainContract.View) {
         loginView = v as LoginView
         mAuth = FirebaseAuth.getInstance()
+//        var ref = database.getReference("Courses").push()
+//        var course1 = Course(ref.key.toString(),"Calculus",3)
+//        ref.setValue(course1).addOnCompleteListener{
+//            if (it.isSuccessful){
+//                Log.d("Courses",course1.toString())
+//            }
+//            else{
+//                Log.d("exceptionCourse",it.exception?.message)
+//            }
+//        }
         if (mAuth?.currentUser !=null){
             loginView.openList()
         }

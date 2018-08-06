@@ -37,7 +37,7 @@ class UserActivity : AppCompatActivity(), OpenProfileActivity {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
         val pagerAdapter = UsersPagesAdapter(supportFragmentManager)
-        viewPager.adapter=pagerAdapter
+        viewPager.adapter = pagerAdapter
         tabLayout.setupWithViewPager(viewPager)
         floatingButton.visibility=View.INVISIBLE
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
