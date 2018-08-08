@@ -8,6 +8,7 @@ import com.google.firebase.database.ValueEventListener
 import intranet.MainContract
 import intranet.models.Course
 import intranet.models.StudentCourses
+import intranet.models.Teacher
 import intranet.views.ChooseCourseView
 
 class ChooseCoursePresenter:MainContract.Presenter{
@@ -29,12 +30,29 @@ class ChooseCoursePresenter:MainContract.Presenter{
 
             override fun onDataChange(p0: DataSnapshot?) {
                 var courses = ArrayList<Course>()
+                var teachers = ArrayList<Teacher>()
                 for (it in p0?.children!!){
                     var course = it.getValue(Course::class.java)
                     courses.add(course!!)
+                    var teacherById = database.getReference("Teachers")
+                    teacherById.addValueEventListener(object:ValueEventListener{
+                        override fun onCancelled(p2: DatabaseError?) {
+
+                        }
+
+                        override fun onDataChange(p2: DataSnapshot?) {
+                            for (it3 in p2?.children!!){
+                                var teacher = it3.getValue(Teacher::class.java)
+                                if (course?.teacherId.equals(teacher?.id)){
+                                    teachers.add(teacher!!)
+                                }
+                            }
+                            chooseCourseView.setCourseFromDb(courses)
+                            chooseCourseView.setTeacherFromDb(teachers)
+                            chooseCourseView.showCourseList()
+                        }
+                })
                 }
-                chooseCourseView.setCourseFromDb(courses)
-                chooseCourseView.showCourseList()
             }
 
         })

@@ -1,6 +1,8 @@
 package intranet.models
 
-class Course{
+import java.io.Serializable
+
+class Course: Serializable{
     var id:String?=null
     var name:String?= null
     var credits:Int?=null

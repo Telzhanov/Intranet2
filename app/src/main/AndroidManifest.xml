@@ -27,7 +27,9 @@
         <activity android:name="intranet.views.SignUpActivity" />
         <activity android:name="intranet.views.TeacherMenuActivity" />
         <activity android:name="intranet.views.AddCourseActivity" />
-        <activity android:name="intranet.views.ChooseCourseActivity"></activity>
+        <activity android:name="intranet.views.ChooseCourseActivity" />
+        <activity android:name="intranet.views.CourseStudentListActivity" />
+        <activity android:name="intranet.views.StudentMarkActivity"></activity>
     </application>
 
 </manifest>

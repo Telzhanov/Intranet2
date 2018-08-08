@@ -1,41 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="intranet.views.TeacherMenuActivity">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarTM"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="match_parent"
+        tools:context="intranet.views.TeacherMenuActivity">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarTM"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            app:titleTextColor="#FFF"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ProfileHead"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
         android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        app:titleTextColor="#FFF"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="6dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/disciplineList"
-        android:layout_width="fill_parent"
-        android:layout_height="450dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTM"
-        ></android.support.v7.widget.RecyclerView>
-
-    <Button
-        android:id="@+id/addCourseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Add Course"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disciplineList" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTM">
 
-</android.support.constraint.ConstraintLayout>
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="123"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="@+id/profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+    </android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/disciplineList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ProfileHead"
+            app:layout_constraintBottom_toBottomOf="parent"
+            ></android.support.v7.widget.RecyclerView>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addCourseButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="32dp"
+            android:layout_marginRight="32dp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/ic_add_black_24dp"/>
+
+    </android.support.constraint.ConstraintLayout>

@@ -24,7 +24,7 @@ class SignUpPresenter: MainContract.Presenter{
                     if (it.isSuccessful){
                         when(typeUser){
                             TEACHER->{
-                                var teacher = Teacher(name,email,password)
+                                var teacher = Teacher(name,email,password,mAuth?.currentUser?.uid!!)
                                 database.getReference("Teachers")
                                         .child(mAuth?.currentUser?.uid)
                                         .setValue(teacher).addOnCompleteListener{
@@ -37,7 +37,7 @@ class SignUpPresenter: MainContract.Presenter{
                                         }
                             }
                             STUDENT->{
-                                var student = Student(name, email, password)
+                                var student = Student(name, email, password,mAuth?.currentUser?.uid!!)
                                 database.getReference("Students")
                                         .child(mAuth?.currentUser?.uid)
                                         .setValue(student).addOnCompleteListener{

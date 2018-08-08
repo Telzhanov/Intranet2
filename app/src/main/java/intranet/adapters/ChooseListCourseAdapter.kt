@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.user.intranet2.R
 import intranet.models.Course
-import intranet.presenters.ChooseCoursePresenter
+import intranet.models.Teacher
 import intranet.views.ChooseListAdapterActivity
 import kotlinx.android.synthetic.main.card.view.*
 
-class ChooseListCourseAdapter(var courses:ArrayList<Course>, var context:Context): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    var chooseCoursePresenter = ChooseCoursePresenter()
+class ChooseListCourseAdapter(var courses:ArrayList<Course>, var context:Context,var teachers:ArrayList<Teacher>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     var chooseListAdapterActivity = context as ChooseListAdapterActivity
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CourseViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card,parent,false))
@@ -24,9 +23,10 @@ class ChooseListCourseAdapter(var courses:ArrayList<Course>, var context:Context
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder.itemView.descView.text = courses[position].name
-        holder.itemView.textPost.text = courses[position].credits.toString()
+        holder.itemView.authorPost.text = "Teacher:" + teachers[position].name
+        holder.itemView.textPost.text = "Credits: " + courses[position].credits.toString()
         holder.itemView.setOnClickListener {
-            chooseCoursePresenter.createCourse(courses[position])
+            chooseListAdapterActivity.createCrouse(courses[position])
             chooseListAdapterActivity.close()
         }
     }
