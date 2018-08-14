@@ -10,14 +10,12 @@ import intranet.models.Course
 import intranet.models.Teacher
 import intranet.presenters.ChooseCoursePresenter
 import kotlinx.android.synthetic.main.activity_choose_course.*
+import org.koin.android.ext.android.inject
 
 class ChooseCourseActivity : AppCompatActivity(),ChooseCourseView,ChooseListAdapterActivity {
+    val chooseCoursePresenter:ChooseCoursePresenter by inject()
     override fun callToast() {
         Toast.makeText(this, "You have this course!", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun setTeacherFromDb(teachers: ArrayList<Teacher>) {
-        this.teachers = teachers
     }
 
     override fun createCrouse(course: Course) {
@@ -27,14 +25,7 @@ class ChooseCourseActivity : AppCompatActivity(),ChooseCourseView,ChooseListAdap
     override fun close() {
         finish()
     }
-    var courses = ArrayList<Course>()
-    var teachers = ArrayList<Teacher>()
-    var chooseCoursePresenter = ChooseCoursePresenter()
-    override fun setCourseFromDb(courses: ArrayList<Course>) {
-        this.courses = courses
-    }
-
-    override fun showCourseList() {
+    override fun showCourseList(courses:ArrayList<Course>,teachers:ArrayList<Teacher>) {
         chooseCourseList.layoutManager = LinearLayoutManager(this)
         chooseCourseList.adapter = ChooseListCourseAdapter(courses,this,teachers)
     }

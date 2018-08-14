@@ -5,8 +5,6 @@ import intranet.models.Course
 import intranet.models.Teacher
 
 interface ChooseCourseView: MainContract.View{
-    fun setCourseFromDb(courses:ArrayList<Course>)
-    fun setTeacherFromDb(teachers:ArrayList<Teacher>)
-    fun showCourseList()
+    fun showCourseList(courses: ArrayList<Course>,teachers:ArrayList<Teacher>)
     fun callToast()
 }

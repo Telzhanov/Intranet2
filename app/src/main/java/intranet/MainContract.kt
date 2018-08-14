@@ -9,4 +9,5 @@ interface MainContract{
         fun onStart(v : View)
         fun onFinish()
     }
+
 }

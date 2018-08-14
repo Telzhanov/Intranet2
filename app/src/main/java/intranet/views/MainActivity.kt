@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import com.example.user.intranet2.R
 import intranet.presenters.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.ext.android.inject
 
 class MainActivity:LoginView, AppCompatActivity() {
     override fun openList() {
@@ -13,17 +14,13 @@ class MainActivity:LoginView, AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-    val mainPresenter: MainPresenter
+    val mainPresenter:MainPresenter by inject()
     override fun startloading() {
 
     }
 
     override fun stopLoading() {
 
-    }
-
-    init{
-        mainPresenter = MainPresenter()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

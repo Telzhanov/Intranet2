@@ -8,7 +8,6 @@ import intranet.MainContract
 import intranet.views.LoginView
 
 
-
 class MainPresenter():MainContract.Presenter {
     //    var allUsers = ArrayList<Person>()
     lateinit var loginView : LoginView
@@ -54,7 +53,6 @@ class MainPresenter():MainContract.Presenter {
 //                    }
 //                }
     }
-
     override fun onFinish() {
 
     }

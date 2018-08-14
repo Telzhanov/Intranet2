@@ -3,6 +3,7 @@ package intranet
 import android.app.Application
 import android.arch.persistence.room.Room
 import intranet.models.MyDatabase
+import org.koin.android.ext.android.startKoin
 
 class App:Application(){
     companion object{
@@ -11,6 +12,7 @@ class App:Application(){
     override fun onCreate() {
         super.onCreate()
         database = Room.databaseBuilder(this, MyDatabase::class.java, "MyDB").build()
+        startKoin(this, listOf(appModule))
 //        val student = StudentDb(1, "Askhat", 2.0,"12345")
 //        Single.fromCallable {
 //            App.database?.studentDao()?.insert(student)
